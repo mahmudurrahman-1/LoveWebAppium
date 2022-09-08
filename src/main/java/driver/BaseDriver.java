@@ -15,6 +15,7 @@ public class BaseDriver {
     DesiredCapabilities capabilities=new DesiredCapabilities();
 
     public AndroidDriver setup(){
+        //setting up everything
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"8.1.0");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"HUAWEI Y9 2019");
@@ -27,17 +28,22 @@ public class BaseDriver {
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
 
 
-
+//appium start in the server given below
         try{
             url=new URL("http://0.0.0.0:4723/wd/hub/");
         }
         catch (MalformedURLException e){
             e.printStackTrace();
         }
+        //passing server and capabilities through AndroidDriver constructor
         driver=new AndroidDriver(url,capabilities);
+        //Implicitlty wait for 10 seconds
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //the site going to be automated
         driver.get("https://www.love.com");
+        //driver passing through pagedriver
         PageDriver.getInstance().setAndroiddriver(driver);
+        //return driver
         return driver;
     }
 }
