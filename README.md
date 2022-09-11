@@ -1,4 +1,4 @@
-# LoveWebAppium
+# WebAppium
 A simple ready to use mobile web app automation framework with Appium. This a maven project for automating the Test Scenarios across Android Mobile Chrome application to perform features testing using BBD Style framework followed by Page OBJECT Model Architecture.
 
 ### What is Appium?
